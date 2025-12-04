@@ -1,8 +1,3 @@
 package alexgessner.designiiassignment6;
 
-public class PreWorkout {
-    private int preWorkoutID;
-    private String preName;
-    private int caffeineAmount;
-
-}
+public record PreWorkout(int preWorkoutID, String preName, int caffeineAmount, int lCitrullineAmount, int betaAlanineAmount) {}
