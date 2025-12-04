@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alexgessner.designiiassignment6.PreWorkoutController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alexgessner.designiiassignment6.Controllers.PreWorkoutController">
    <children>
       <ListView fx:id="listViewPreWorkout" layoutX="105.0" layoutY="14.0" prefHeight="200.0" prefWidth="400.0" />
       <VBox alignment="BOTTOM_CENTER" layoutX="105.0" layoutY="214.0" prefHeight="200.0" prefWidth="216.0">
@@ -23,7 +23,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="searchButton" mnemonicParsing="false" text="Search" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchPreWorkout" text="Search" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">

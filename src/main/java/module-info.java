@@ -7,4 +7,8 @@ module alexgessner.designiiassignment6 {
 
     opens alexgessner.designiiassignment6 to javafx.fxml;
     exports alexgessner.designiiassignment6;
+    exports alexgessner.designiiassignment6.Controllers;
+    opens alexgessner.designiiassignment6.Controllers to javafx.fxml;
+    exports alexgessner.designiiassignment6.Model;
+    opens alexgessner.designiiassignment6.Model to javafx.fxml;
 }
