@@ -25,11 +25,11 @@ public class PreWorkoutController implements Initializable{
     @FXML private ListView listViewPreWorkout;
 
 
-    @FXML
+    @FXML //Initializes the Listview to all items in the database
     public void initialize(URL url, ResourceBundle resourceBundle){
         listViewPreWorkout.setItems(AppState.preWorkoutList);
     }
-    @FXML
+    @FXML //Logic for searching and updating the ListView
     private void searchPreWorkout(ActionEvent e){
         String nameSearch = searchText.getText();
         ObservableList<PreWorkout> searchedPreWorkouts;
@@ -47,7 +47,7 @@ public class PreWorkoutController implements Initializable{
 
     }
 
-    @FXML
+    @FXML //Refreshes ListView to all in database
     private void refreshList(ActionEvent e){
         ObservableList<PreWorkout> preWorkouts = PreWorkoutDAO.getPreWorkout();
         AppState.preWorkoutList = preWorkouts;
@@ -58,5 +58,11 @@ public class PreWorkoutController implements Initializable{
     private void switchSceneCreate(ActionEvent e) throws IOException {
         Stage stage = (Stage) ((javafx.scene.Node) e.getSource()).getScene().getWindow();
         AppState.switchToCreateScene(stage);
+    }
+
+    @FXML
+    private void switchSceneEdit(ActionEvent e) throws IOException {
+        Stage stage = (Stage) ((javafx.scene.Node) e.getSource()).getScene().getWindow();
+        AppState.switchToEditScene(stage);
     }
 }

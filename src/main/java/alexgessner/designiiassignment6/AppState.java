@@ -17,10 +17,17 @@ public class AppState {
     public static ObservableList<PreWorkout> preWorkoutList = FXCollections.observableArrayList(PreWorkoutDAO.getPreWorkout());
 
     public static void switchToCreateScene(Stage stage) throws IOException {
-            Scene scene = new Scene(PreWorkoutApplication.loadFXML("NewPreView"), 640, 480);
+            Scene scene = new Scene(PreWorkoutApplication.loadFXML("NewPreView"), 640, 300);
             stage.setTitle("Create New Pre Workout");
             stage.setScene(scene);
             stage.show();
+    }
+
+    public static void switchToEditScene(Stage stage) throws IOException {
+        Scene scene = new Scene(PreWorkoutApplication.loadFXML("EditView"), 640, 300);
+        stage.setTitle("Edit a Pre Workout");
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

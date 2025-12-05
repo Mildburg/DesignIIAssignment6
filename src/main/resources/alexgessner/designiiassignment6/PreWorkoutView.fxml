@@ -50,7 +50,7 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="newButton" mnemonicParsing="false" text="New" />
+                  <Button fx:id="newButton" mnemonicParsing="false" onAction="#switchSceneCreate" text="New" />
                </children>
                <padding>
                   <Insets top="10.0" />

@@ -46,7 +46,7 @@ public class PreWorkoutDAO  {
     public static ObservableList<PreWorkout> searchPreWorkouts(String preName){
         ObservableList<PreWorkout> searchedPreWorkouts = FXCollections.observableArrayList();
         try(Connection connection = getConnection()){
-            String query = "SELECT * FROM preworkouttable WHERE preName = '" + preName + "'";
+            String query = "SELECT * FROM preworkouttable WHERE preName LIKE '%" + preName + "%'";
             PreparedStatement ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
