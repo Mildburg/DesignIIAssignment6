@@ -6,8 +6,8 @@ public record PreWorkout(int preWorkoutID, String preName, int caffeineAmount, i
     public String toString(){
         String info = "";
 
-        info += "ID: " + preWorkoutID + " Name: " + preName + " Caffeine " + caffeineAmount + " L-Citrulline: " + lCitrullineAmount
-                + " Beta Alanine " + betaAlanineAmount;
+        info += "ID: " + preWorkoutID + " Name: " + preName + " Caffeine: " + caffeineAmount + " L-Citrulline: " + lCitrullineAmount
+                + " Beta Alanine: " + betaAlanineAmount;
 
         return info;
     }

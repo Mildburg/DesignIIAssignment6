@@ -1,35 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alexgessner.designiiassignment6.Controllers.PreWorkoutController">
    <children>
-      <ListView fx:id="listViewPreWorkout" layoutX="105.0" layoutY="14.0" prefHeight="200.0" prefWidth="400.0" />
-      <VBox alignment="BOTTOM_CENTER" layoutX="105.0" layoutY="214.0" prefHeight="200.0" prefWidth="216.0">
+      <ListView fx:id="listViewPreWorkout" layoutX="7.0" layoutY="14.0" prefHeight="200.0" prefWidth="585.0" />
+      <VBox alignment="TOP_CENTER" layoutY="214.0" prefHeight="200.0" prefWidth="297.0">
          <children>
-            <HBox fx:id="searchText" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField />
-               </children></HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <TextField fx:id="searchText" prefHeight="26.0" prefWidth="239.0" promptText="Search by Name..." />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="253.0" layoutY="214.0" prefHeight="200.0" prefWidth="56.0">
+         <children>
+            <HBox prefHeight="52.0" prefWidth="56.0">
                <children>
-                  <Button fx:id="newButton" mnemonicParsing="false" text="New" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchPreWorkout" text="Search" />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding></HBox>
+            <HBox prefHeight="49.0" prefWidth="56.0">
+               <children>
+                  <Button fx:id="RefreshButton" mnemonicParsing="false" onAction="#refreshList" text="Refresh" />
                </children>
             </HBox>
          </children>
       </VBox>
-      <VBox alignment="BOTTOM_CENTER" layoutX="311.0" layoutY="214.0" prefHeight="200.0" prefWidth="200.0">
+      <VBox layoutX="419.0" layoutY="214.0" prefHeight="200.0" prefWidth="45.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchPreWorkout" text="Search" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button fx:id="editButton" mnemonicParsing="false" text="Edit" />
                </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding></HBox>
+         </children></VBox>
+      <VBox layoutX="476.0" layoutY="214.0" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="newButton" mnemonicParsing="false" text="New" />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
             </HBox>
          </children>
       </VBox>

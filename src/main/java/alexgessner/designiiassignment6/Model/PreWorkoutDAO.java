@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PreWorkoutDAO  {
     private static final String url = "jdbc:mysql://localhost:3306/sys";
@@ -19,13 +20,13 @@ public class PreWorkoutDAO  {
             return DriverManager.getConnection(url, user, password);
         }
         catch(Exception e){
-            System.out.println("Error Connecting to Database!");
+            e.printStackTrace();
             return null;
         }
     }
 
-    public static ArrayList<PreWorkout> getPreWorkout(){
-        ArrayList<PreWorkout> preWorkouts = new ArrayList<>();
+    public static ObservableList<PreWorkout> getPreWorkout(){
+        ObservableList<PreWorkout> preWorkouts = FXCollections.observableArrayList();
         try(Connection con = getConnection()){
             String query = "SELECT * FROM preworkouttable";
             PreparedStatement ps = con.prepareStatement(query);

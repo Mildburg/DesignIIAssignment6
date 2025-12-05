@@ -1,6 +1,6 @@
 package alexgessner.designiiassignment6.Controllers;
-import alexgessner.designiiassignment6.*;
 
+import alexgessner.designiiassignment6.AppState;
 import alexgessner.designiiassignment6.Model.PreWorkout;
 import alexgessner.designiiassignment6.Model.PreWorkoutDAO;
 import javafx.collections.ObservableList;
@@ -9,7 +9,9 @@ import javafx.fxml.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -25,12 +27,36 @@ public class PreWorkoutController implements Initializable{
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle){
-
+        listViewPreWorkout.setItems(AppState.preWorkoutList);
     }
     @FXML
     private void searchPreWorkout(ActionEvent e){
         String nameSearch = searchText.getText();
-        ObservableList<PreWorkout> searchedPreWorkouts = PreWorkoutDAO.searchPreWorkouts(nameSearch);
+        ObservableList<PreWorkout> searchedPreWorkouts;
+        if(nameSearch.isEmpty()) {
+            searchedPreWorkouts = PreWorkoutDAO.getPreWorkout();
+            AppState.preWorkoutList = searchedPreWorkouts;
+            listViewPreWorkout.setItems(AppState.preWorkoutList);
+        }
+        else {
+            searchedPreWorkouts = PreWorkoutDAO.searchPreWorkouts(nameSearch);
+            AppState.preWorkoutList = searchedPreWorkouts;
+            listViewPreWorkout.setItems(AppState.preWorkoutList);
+        }
 
+
+    }
+
+    @FXML
+    private void refreshList(ActionEvent e){
+        ObservableList<PreWorkout> preWorkouts = PreWorkoutDAO.getPreWorkout();
+        AppState.preWorkoutList = preWorkouts;
+        listViewPreWorkout.setItems(AppState.preWorkoutList);
+    }
+
+    @FXML
+    private void switchSceneCreate(ActionEvent e) throws IOException {
+        Stage stage = (Stage) ((javafx.scene.Node) e.getSource()).getScene().getWindow();
+        AppState.switchToCreateScene(stage);
     }
 }
