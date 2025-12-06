@@ -4,6 +4,7 @@ module alexgessner.designiiassignment6 {
 
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires mysql.connector.j;
 
     opens alexgessner.designiiassignment6 to javafx.fxml;
     exports alexgessner.designiiassignment6;

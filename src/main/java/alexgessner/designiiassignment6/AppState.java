@@ -17,7 +17,7 @@ public class AppState {
     public static ObservableList<PreWorkout> preWorkoutList = FXCollections.observableArrayList(PreWorkoutDAO.getPreWorkout());
 
     public static void switchToCreateScene(Stage stage) throws IOException {
-            Scene scene = new Scene(PreWorkoutApplication.loadFXML("NewPreView"), 640, 300);
+            Scene scene = new Scene(PreWorkoutApplication.loadFXML("NewPreView"), 600, 400);
             stage.setTitle("Create New Pre Workout");
             stage.setScene(scene);
             stage.show();
@@ -26,6 +26,13 @@ public class AppState {
     public static void switchToEditScene(Stage stage) throws IOException {
         Scene scene = new Scene(PreWorkoutApplication.loadFXML("EditView"), 640, 300);
         stage.setTitle("Edit a Pre Workout");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public static void switchToMainScene(Stage stage) throws IOException{
+        Scene scene = new Scene(PreWorkoutApplication.loadFXML("PreWorkoutView"), 640, 300);
+        stage.setTitle("PreWorkout Catalog");
         stage.setScene(scene);
         stage.show();
     }

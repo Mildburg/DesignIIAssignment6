@@ -1,14 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="alexgessner.designiiassignment6.Controllers.NewPreController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alexgessner.designiiassignment6.Controllers.NewPreController">
+   <children>
+      <TitledPane alignment="TOP_LEFT" animated="false" prefHeight="400.0" prefWidth="600.0" text="New PreWorkout">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox layoutX="194.0" layoutY="1.0" prefHeight="375.0" prefWidth="200.0">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="170.0">
+                           <children>
+                              <Label text="Name">
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="nameText" prefHeight="25.0" prefWidth="120.0" promptText="Enter Text..." />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="170.0">
+                           <children>
+                              <Label text="Caffeine">
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="caffeineText" prefHeight="25.0" prefWidth="120.0" promptText="Enter Text..." />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="200.0">
+                           <children>
+                              <Label text="L-Citrulline">
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="lCitrullineText" prefHeight="25.0" prefWidth="120.0" promptText="Enter Text..." />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Beta-Alanine">
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="betaAlanineText" prefWidth="120.0" promptText="Enter Text..." />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="42.0" prefWidth="200.0" spacing="20.0">
+                           <children>
+                              <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveEntry" prefHeight="26.0" prefWidth="45.0" text="Save" />
+                              <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitToMain" text="Exit" />
+                           </children></HBox>
+                        <HBox alignment="CENTER" prefHeight="62.0" prefWidth="200.0">
+                           <children>
+                              <ProgressBar fx:id="saveProgress" prefHeight="18.0" prefWidth="160.0" progress="0.0" />
+                           </children></HBox>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="-2.0" prefHeight="375.0" prefWidth="195.0" />
+                  <VBox layoutX="394.0" layoutY="1.0" prefHeight="375.0" prefWidth="205.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 package alexgessner.designiiassignment6.Model;
 
+import com.mysql.cj.x.protobuf.MysqlxPrepare;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -61,5 +62,35 @@ public class PreWorkoutDAO  {
         }
 
         return searchedPreWorkouts;
+    }
+
+    public static int getLastID(){
+        try(Connection conn = getConnection()){
+            String getLastUsedID = "SELECT MAX(preWorkoutID) FROM preworkouttable";
+            PreparedStatement ps = conn.prepareStatement(getLastUsedID);
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()){
+                return rs.getInt(1);
+            }
+        }
+        catch (Exception e){
+            throw new RuntimeException(e);
+        }
+        return -1;
+    }
+
+    public static void addPreWorkout(PreWorkout preWorkout){
+        try(Connection conn = getConnection()){
+            String insertQuery = "INSERT INTO preworkouttable VALUES (" + preWorkout.preWorkoutID() + ", '" + preWorkout.preName()
+                    + "', " + preWorkout.caffeineAmount() + ", " + preWorkout.lCitrullineAmount() + ", " +
+                    preWorkout.lCitrullineAmount() + ");";
+
+            PreparedStatement ps = conn.prepareStatement(insertQuery);
+            ps.executeUpdate();
+        }
+        catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 }
