@@ -16,6 +16,10 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
+/**
+ * Controller for the NewPreView
+ */
+
 public class NewPreController {
 
     @FXML private TextField nameText;
@@ -26,6 +30,11 @@ public class NewPreController {
     @FXML private Button exitButton;
     @FXML private ProgressBar saveProgress;
 
+    /**
+     * Saves the Entry
+     * @param e - clicking save button
+     * @throws IOException - throws exception
+     */
     @FXML private void saveEntry(ActionEvent e) throws IOException {
         String preName = nameText.getText();
         int caffeineAmount = Integer.parseInt(caffeineText.getText());
@@ -56,6 +65,12 @@ public class NewPreController {
 
         timeline.play();
     }
+
+    /**
+     * Method that exits to the mainView
+     * @param e - clicking exit Button
+     * @throws IOException - throws exception
+     */
 
     @FXML private void exitToMain(ActionEvent e) throws IOException {
         Stage stage = (Stage) ((javafx.scene.Node) e.getSource()).getScene().getWindow();
