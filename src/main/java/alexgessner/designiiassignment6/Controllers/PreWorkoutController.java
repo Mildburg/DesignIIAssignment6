@@ -48,6 +48,12 @@ public class PreWorkoutController implements Initializable{
 
     }
 
+    @FXML private void deleteSelection(ActionEvent e){
+        PreWorkout selectedPre = (PreWorkout) listViewPreWorkout.getSelectionModel().getSelectedItem();
+        AppState.preWorkoutList.remove(selectedPre);
+        PreWorkoutDAO.removePreWorkout(selectedPre);
+    }
+
     @FXML //Refreshes ListView to all in database
     private void refreshList(ActionEvent e){
         ObservableList<PreWorkout> preWorkouts = PreWorkoutDAO.getPreWorkout();
