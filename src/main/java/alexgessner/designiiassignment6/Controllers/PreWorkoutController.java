@@ -3,6 +3,7 @@ package alexgessner.designiiassignment6.Controllers;
 import alexgessner.designiiassignment6.AppState;
 import alexgessner.designiiassignment6.Model.PreWorkout;
 import alexgessner.designiiassignment6.Model.PreWorkoutDAO;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
@@ -62,6 +63,8 @@ public class PreWorkoutController implements Initializable{
 
     @FXML
     private void switchSceneEdit(ActionEvent e) throws IOException {
+        PreWorkout selectedPre = (PreWorkout) listViewPreWorkout.getSelectionModel().getSelectedItem();
+        AppState.preWorkoutList = FXCollections.observableArrayList(selectedPre);
         Stage stage = (Stage) ((javafx.scene.Node) e.getSource()).getScene().getWindow();
         AppState.switchToEditScene(stage);
     }

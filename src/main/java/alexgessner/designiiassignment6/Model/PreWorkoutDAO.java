@@ -1,6 +1,5 @@
 package alexgessner.designiiassignment6.Model;
 
-import com.mysql.cj.x.protobuf.MysqlxPrepare;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -8,8 +7,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PreWorkoutDAO  {
     private static final String url = "jdbc:mysql://localhost:3306/sys";
@@ -90,6 +87,17 @@ public class PreWorkoutDAO  {
             ps.executeUpdate();
         }
         catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void removePreWorkout(PreWorkout preWorkout){
+        try(Connection con = getConnection()){
+            String removeQuery = "DELETE FROM preworkouttable WHERE preWorkoutID = '" + preWorkout.preWorkoutID() + "'";
+            PreparedStatement ps = con.prepareStatement(removeQuery);
+            ps.executeUpdate();
+        }
+        catch(Exception e){
             throw new RuntimeException(e);
         }
     }
